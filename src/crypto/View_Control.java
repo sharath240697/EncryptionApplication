@@ -12,6 +12,7 @@ public class View_Control {
 			Scanner sc1 = new Scanner(System.in);
 			Scanner sc2 = new Scanner(System.in);
 			CESARCIPHER cesarcipherclass = new CESARCIPHER();
+			DESAlgorithm desclass = new DESAlgorithm();
 
 			int user_choice = 0;
 			int key=0;
@@ -158,7 +159,65 @@ public class View_Control {
 									break;
 
 							case 5:
+									try {
+										desclass.encrypt(InputFilePath);
+										System.out.println("Encripted successfully");
+									} catch (Exception e) {
+										//TODO: handle exception
+										System.out.println("Encription failed");
+									}																											
+									System.out.println("Enter 7 to go back");
+									while(!(sc1.hasNextInt()) )
+											sc1.next();
+									while(user_choice!=7)
+									{
+										user_choice = sc1.nextInt();
+									}
+									break;
 							case 6:
+									File keyfile = null;
+									String keyfilepath = "null";
+									System.out.println(keyfile==null || !keyfile.isFile() || !keyfile.exists());
+									while((keyfile==null || !keyfile.isFile() || !keyfile.exists()) && !keyfilepath.equals("exit"))
+									{
+										if(keyfilepath.equals("null"))
+											System.out.println("Enter the path of key file");
+										else
+										{
+											System.out.println("Key file foesnt exist");
+											System.out.println("Please enter valid path or type exit to go back");
+										}
+										keyfilepath = sc1.nextLine();
+										keyfile = new File(keyfilepath);
+									}		
+									if(!keyfilepath.equals("exit") && !keyfilepath.equals("null"))
+											{
+												
+												try {
+													desclass.decrypt(keyfilepath, InputFilePath);
+													System.out.println("Decripted successfully");
+												
+												} catch (Exception e) {
+												
+													System.out.println("Decription failed");
+													//TODO: handle exception
+												} catch (Throwable e) {
+													// TODO Auto-generated catch block
+													e.printStackTrace();
+												}
+												System.out.println("Enter 7 to go back");
+												while(!(sc1.hasNextInt()) )
+														sc1.next();
+												while(user_choice!=7)
+													{
+														user_choice = sc1.nextInt();
+													}
+											}
+										else
+										{
+											user_choice = 0;
+										}
+																						
 							default:
 							if(user_choice!=7) {user_choice=0;}
 							//else {InputFilePath ="exit";}
@@ -187,13 +246,12 @@ public class View_Control {
 						   
 					}
 				}
-			}
-			
-			
-			
-			
+			}		
 		} catch (Exception e) {
 			// TODO: handle exception
+		} catch (Throwable e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
 		}
 	}
 
