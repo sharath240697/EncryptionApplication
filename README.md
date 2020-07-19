@@ -20,10 +20,10 @@ Many learning materials were referenced during the process, hence all the credit
 
 **In Eclipse**
   
-    - Create new Java project copy past the package from clonned project src to new project src
-    - Run the application
+    * Create new Java project copy past the package from clonned project src to new project src
+    * Run the application
     
 **In Terminal**
 
-    - Change into src directory execute the command <javac crypto.View_Control.java -d ../bin/crypto>
-    - Change into bin directory exectue the command <java crypto.View_Control>
+    * Change into src directory execute the command <javac crypto.View_Control.java -d ../bin/crypto>
+    * Change into bin directory exectue the command <java crypto.View_Control>
