@@ -25,5 +25,5 @@ Many learning materials were referenced during the process, hence all the credit
     
 **In Terminal**
 
-    * Change into src directory execute the command <javac crypto.View_Control.java -d ../bin/crypto>
+    * Change into src directory execute the command <javac crypto/*.java -d ../bin>
     * Change into bin directory exectue the command <java crypto.View_Control>
